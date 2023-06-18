@@ -1,0 +1,76 @@
+.home{
+    position: absolute;
+    top: 0;
+    top: 0;
+    left: 250px;
+    height: 100vh;
+    width: calc(100% - 250px);
+    background-color: var(--body-color);
+    transition: var(--tran-05);
+}
+
+.home .header-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--body-text);
+}
+
+.sidebar.close ~ .home{
+    left: 78px;
+    height: 100vh;
+    width: calc(100% - 78px);
+}
+
+.home .result{
+    color: var(--body-text);
+    display: grid;
+    margin-left: 60px;
+    margin-right: 60px;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 30px;
+    margin-top: 30px;
+}
+
+.home .result .item{
+    display: flex;
+    align-items: center;
+}
+
+.item{
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: var(--primary-color-light);
+}
+
+.home .item .keterangan{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+button{
+    font-size: 48px;
+    margin-top: 5px;
+    padding: 5px 5px;
+    background: var(--sidebar-color);
+    color: var(--text-color);
+    font-size: medium;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+}
+
+.btn-pinjam{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    margin-right: 60px;
+}

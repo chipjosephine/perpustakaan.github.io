@@ -1,0 +1,47 @@
+.home{
+    position: absolute;
+    top: 0;
+    top: 0;
+    left: 250px;
+    height: 100vh;
+    width: calc(100% - 250px);
+    background-color: var(--body-color);
+    transition: var(--tran-05);
+}
+
+.home .header-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    font-size: 30px;
+    font-weight: 500;
+    color: var(--body-text);
+}
+
+.sidebar.close ~ .home{
+    left: 78px;
+    height: 100vh;
+    width: calc(100% - 78px);
+}
+
+.home .history{
+    color: var(--body-text);
+    margin-left: 60px;
+    margin-right: 60px;
+    margin-top: 52px;
+}
+
+.home .tanggal{
+    margin-bottom: 5px;
+    margin-left: 10px;
+    font-size: 12px;
+
+}
+
+.home .isi{
+    display: flex;
+    flex-direction: column;
+    padding: 10px 10px;
+    box-shadow: 2px 2px 5px grey;
+}

@@ -1,0 +1,157 @@
+.home{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 320px;
+    height: 100vh;
+    width: calc(100% - 320px);
+    transition: var(--tran-05);
+
+}
+
+.sidebar.close ~ .home{
+    left: 150px;
+    height: 100vh;
+    width: calc(100% - 150px);
+}
+
+.home h4{
+    margin-top: 10px;
+    font-size: 36px;
+    color: var(--body-text);
+}
+
+.home h6{
+    color: var(--body-text);
+    font-size: 20px;
+}
+
+.home .header{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 40px;
+    margin-right: 60px;
+}
+
+.header li a{
+    display: flex;
+    text-decoration: none;
+    list-style: none;
+}
+
+.home .header .image-text{
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 20px;
+    border-radius: 10px;
+    background: var(--sidebar-color);
+}
+
+.home .header .image-text:hover{
+    background: var(--primary-color);
+}
+
+.home .img{
+    min-width: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.header .image-text .keterangan{
+    display: flex;
+    flex-direction: column;
+}
+
+.header .keterangan{
+    margin-left: 30px;
+}
+
+.header .keterangan .jumlah h5{
+    font-size: 35px;
+    color: var(--text-color);
+}
+
+.header .keterangan .judul{
+    font-size: 18px;
+    color: var(--text-color);
+}
+
+.katalog{
+    background : var(--sidebar-color);
+    margin-right: 60px;
+    border-radius: 10px;
+    padding-bottom: 30px;
+}
+
+.data-buku h3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    padding: 30px;
+    color: var(--text-color);
+    font-size: 25px;
+}
+
+.grid{
+    display: grid;
+    margin-right: 60px;
+    margin-left: 60px;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 30px;
+}
+
+img{
+    object-fit: cover;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+}
+
+.grid article{
+    width: 220px;
+    height: 320px;
+    background-color: whitesmoke;
+    padding-bottom: 5px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    text-align: center;
+    overflow: hidden;
+    transition: transform;
+}
+
+.detail{
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    box-sizing: border-box;
+    position: absolute;
+    border-radius: 15px;
+    color: var(--text-color);
+}
+
+.detail h1{
+    font-size: 25px;
+    visibility: hidden;
+    opacity: 0;
+}
+
+article:hover{
+    cursor: pointer;
+}
+
+article:hover .detail{
+    padding: 10px;
+    width: 220px;
+    height: 320px;
+    bottom: -11px;
+    background: rgb(27,27,27,.5);
+}
+article:hover h1{
+    opacity: 1;
+    visibility: visible;
+}
