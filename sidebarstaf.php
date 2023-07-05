@@ -64,8 +64,8 @@
 
                     <li class="nav-sub">
                         <div class="menus">
-                            <a>
-                            <i class='bx bx-history icon'></i>
+                            <a class="nama-menu">
+                                <i class='bx bx-history icon'></i>
                                 <span class="text nav-text">Kunjungan</span>
                             </a>
                             <i class='bx bxs-right-arrow arrow'></i>
@@ -92,7 +92,7 @@
 
                     <li class="nav-sub">
                         <div class="menus">
-                        <a>
+                        <a class="nama-menu">
                             <i class='bx bxs-report icon' ></i>
                             <span class="text nav-text">Laporan</span>
                         </a>

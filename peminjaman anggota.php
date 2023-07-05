@@ -2,15 +2,23 @@
     include "sidebaranggota.php";
     include "session-anggota.php";
 ?>
-<link rel="stylesheet" type="text/css" href="peminjaman anggota.css">
-    <section class="home">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menunggu Persetujuan</title>
+    <link rel="stylesheet" type="text/css" href="peminjaman anggota.css">
+</head>
+<body>
+<section class="home">
         <div class="header-text">
             <h4>Peminjaman</h4>
         </div>
         <ul class="nav">
-            <li><a href="#" class="active" >Menunggu Persetujuan</a></li>
-            <li><a href="sedang dipinjam.php">Sedang Dipinjam</a></li>
-            <li><a href="riwayat peminjaman.php">Riwayat Peminjaman</a></li>
+            <li class="aktif"><a href="#" class="active" >Menunggu Persetujuan</a></li>
+            <li class="non"><a href="sedang dipinjam.php">Sedang Dipinjam</a></li>
+            <li class="non"><a href="riwayat peminjaman.php">Riwayat Peminjaman</a></li>
         </ul>
 
         <?php
@@ -38,7 +46,6 @@
                     echo "<img src='cover/$tampil[cover_buku]' width='100'/>";
                     ?>
                 </span>
-    
                 <div class="txt keterangan">
                     <span class="judul"><?=$data_dipinjam['judul_utama'];?></span>
                     <p class="anak_judul"><?=$data_dipinjam['anak_judul'];?></p>                
@@ -84,9 +91,10 @@
                     </table>
                 </div>
             </div>
-            
         </div>
         <?php
             endwhile;
         ?>
     </section>
+</body>
+</html>

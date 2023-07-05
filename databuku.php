@@ -6,9 +6,6 @@
     <title>Data Buku</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" type="text/css" href="databuku.css">
-    <link rel="stylesheet" type="text/css" href="show-entries.css">
-    <script src="show-entries.js"></script>
-    <script src="show-entries2.js"></script>
 </head>
 
 
@@ -26,7 +23,8 @@
                             <tr>
                                 <th>No</th>
                                 <th>ID Buku</th>
-                                <th>Judul Buku</th>
+                                <th>Kode Klasifikasi</th>
+                                <th>Judul Utama</th>
                                 <th>Anak Judul</th>
                                 <th>QRCode</th>
                                 <th>Sampul</th>
@@ -38,6 +36,10 @@
                                 <th>Harga</th>
                                 <th>Jumlah Buku</th>
                                 <th>Stok</th>
+                                <th>Lantai</th>
+                                <th>Rak</th>
+                                <th>Sisi</th>
+                                <th>Susun</th>
                                 <th>Hapus</th>
                                 <th>Ubah</th>
                             </tr>
@@ -52,6 +54,7 @@
                                 <tr>
                                     <td><?=$no?></td>
                                     <td><?=$tampil['id_buku']?></td>
+                                    <td><?=$tampil['kode_klasifikasi']?></td>
                                     <td><?=$tampil['judul_utama']?></td>
                                     <td><?=$tampil['anak_judul']?></td>
                                     <td>
@@ -60,7 +63,7 @@
                                             require_once('assets/phpqrcode/qrlib.php');
                                             QRcode::png("$kode","kode".$no.".png", "M", 2,2);
                                         ?>
-                                        <img src="kode<?= $no ?>.png" alt="">
+                                        <img src="qrcode/kode<?= $no ?>.png" alt="">
                                     </td>
                                     <td><?php echo "<img src='cover/$tampil[cover_buku]' width='100'/>"; ?></td>
                                     <td><?=$tampil['penulis_buku']?></td>
@@ -71,8 +74,12 @@
                                     <td><?=$tampil['harga']?></td>
                                     <td><?=$tampil['jml_buku']?></td>
                                     <td><?=$tampil['stok']?></td>
-                                    <td><a href='?id_buku=$tampil[id_buku]'><i class='bx bx-message-square-x'></i></a></td>
-                                    <td><a href='edit-buku.php?id_buku=$tampil[id_buku]'><i class='bx bx-edit-alt'></i></td>
+                                    <td><?=$tampil['lantai']?></td>
+                                    <td><?=$tampil['rak']?></td>
+                                    <td><?=$tampil['sisi']?></td>
+                                    <td><?=$tampil['susun']?></td>
+                                    <td><a href='?id_buku=<?=$tampil['id_buku'];?>'><i class='bx bx-message-square-x'></i></a></td>
+                                    <td><a href='edit-buku.php?id_buku=<?=$tampil['id_buku'];?>'><i class='bx bx-edit-alt'></i></td>
                                 </tr>
                             <?php } ?>
                         </tbody>

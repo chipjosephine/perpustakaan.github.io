@@ -3,6 +3,7 @@
 ?>
 
 <link rel="stylesheet" type="text/css" href="dbstaf.css">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
 <head>
     <title>Dashboard</title>
@@ -24,11 +25,7 @@
     <ul class="header">
         <li class="image-text">
             <a href="pinjamstaf.php">
-                <span class="img">
-                    <img src="gambar/pinjam.png" alt="" width="100px">
-                </span>
-
-                <div class="ket keterangan">
+                <div class="ket keterangan" align="right">
                     <span class="jumlah"><h5>
                         <?php
                             $jumlah = mysqli_query($koneksi, "select * from peminjaman where status like '%P%'");
@@ -36,17 +33,16 @@
                             echo $tampil;
                         ?>
                     </h5></span>
-                    <span class="judul"> Request Peminjaman</span>
+                    <span class="judul"> Permintaan Peminjaman</span>
                 </div>
+                <span class="img" align="right">
+                    <i class='bx bx-cart-add icon'></i>
+                </span>
             </a>
         </li>
         <li class="image-text">
             <a href="pengembalianstaf.php">
-                <span class="img">
-                    <img src="gambar/kembalikan.png" alt="" width="100px">
-                </span>
-
-                <div class="ket keterangan">
+                <div class="ket keterangan" align="right">
                     <span class="jumlah"><h5>
                         <?php
                             $jumlah = mysqli_query($koneksi, "select * from pengembalian where status like '%P%'");
@@ -54,17 +50,16 @@
                             echo $tampil;
                         ?>
                     </h5></span>
-                    <span class="judul"> Request Pengembalian</span>
+                    <span class="judul"> Permintaan Pengembalian</span>
                 </div>
+                <span class="img" align="right">
+                    <i class='bx bx-cart-download icon'></i>
+                </span>
             </a>
         </li>
         <li class="image-text">
             <a href="peminjamanstaf2.php">
-                <span class="img">
-                    <img src="gambar/pinjam.png" alt="" width="100px">
-                </span>
-
-                <div class="ket keterangan">
+                <div class="ket keterangan" align="right">
                     <span class="jumlah"><h5>
                         <?php
                             $today = date('Y-m-d');
@@ -73,17 +68,16 @@
                             echo $tampil;
                         ?>
                     </h5></span>
-                    <span class="judul">Buku yang Dipinjam Hari Ini</span>
+                    <span class="judul">Peminjaman Hari Ini</span>
                 </div>
+                <span class="img" align="right">
+                    <i class='bx bx-book-reader icon'></i>
+                </span>
             </a>
         </li>
         <li class="image-text">
             <a href="pengembalianstaf2.php">
-                <span class="img">
-                    <img src="gambar/kembalikan.png" alt="" width="100px">
-                </span>
-
-                <div class="ket keterangan">
+                <div class="ket keterangan" align="right">
                     <span class="jumlah"><h5>
                         <?php
                             $jumlah = mysqli_query($koneksi, "select * from pengembalian where status like '%K%' and tgl_kembali = $today;");
@@ -91,8 +85,11 @@
                             echo $tampil;
                         ?>
                     </h5></span>
-                    <span class="judul"> Buku Dikembalikan Hari Ini</span>
+                    <span class="judul">Pengembalian Hari Ini</span>
                 </div>
+                <span class="img" align="right">
+                    <i class='bx bxs-book-reader icon'></i>
+                </span>
             </a>
         </li>
     </ul>
@@ -110,7 +107,7 @@
                         <?php
                         $cover = mysqli_query($koneksi, "select * from buku where judul_utama = '$hasil[judul_utama]'");
                         $tampil = mysqli_fetch_array($cover);
-                        echo "<img src='cover/$tampil[cover_buku]' width='220' height='320' border-radius='10px'/>";
+                        echo "<img src='cover/$tampil[cover_buku]' width='200' height='300' border-radius='10px'/>";
                         ?>
                         <div class="detail">
                             <span align="left"><h1><?=$tampil['judul_utama'];?></h1><p><?=$tampil['anak_judul'];?></p></span>

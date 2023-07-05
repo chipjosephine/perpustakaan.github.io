@@ -9,7 +9,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" type="text/css" href="sidebaranggota.css">
 </head>
@@ -44,7 +43,7 @@
         <div class="menu-bar">
             <div class="menu">
                 <div class="search-box">
-                    <form action="search.php" method="get">
+                    <form class="form-search" action="search.php" method="get">
                         <i class='bx bx-search-alt ikon'></i>
                         <input type="search" placeholder="Search..." name="cari" id="cari">
                     </form>
@@ -58,7 +57,7 @@
                     </li>
 
                     <li class="nav-link">
-                        <a href="daftar-buku.php">
+                        <a href="koleksi-bacaan.php">
                             <i class='bx bx-book-reader icon'></i>
                             <span class="text nav-text">Koleksi Bacaan</span>
                         </a>

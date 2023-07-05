@@ -79,3 +79,49 @@
     font-size: 16px;
     color: var(--body-text);
 }
+
+@media screen and (max-width:934px) {
+    .home .nav{
+        display: block;
+    }
+
+    .nav li{
+        margin: 0;
+        padding: 10px;
+    }
+    
+    .home .ket{
+        padding: 10px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+    
+    .ket .isi{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .ket .keterangan{
+        display: flex;
+        flex-direction: column;
+        margin-top: 0px;
+        margin-left: 10px;
+    }
+    
+    .ket .judul{
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--body-text);
+    }
+    
+    .ket .anak_judul{
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--body-text);
+    }
+    
+    .ket table{
+        font-size: 10px;
+        color: var(--body-text);
+    }
+}

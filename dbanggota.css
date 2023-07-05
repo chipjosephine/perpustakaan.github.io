@@ -422,8 +422,6 @@ article:hover button{
 
 .konten{
     display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .cover{
@@ -432,7 +430,6 @@ article:hover button{
 }
 
 table{
-    margin-top: 10px;
     margin-left: 20px;
 }
 

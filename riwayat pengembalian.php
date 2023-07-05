@@ -24,30 +24,30 @@
         <div class="ket">
             <div class="isi">
                 <span class="cover">
-                <?php
-                    $cover = mysqli_query($koneksi, "select * from buku where id_buku = '$data_kembali[id_buku]'");
-                    $tampil = mysqli_fetch_array($cover);
-                    echo "<img src='cover/$tampil[cover_buku]' width='100'/>";
-                ?>
+                    <?php
+                        $cover = mysqli_query($koneksi, "select * from buku where id_buku = '$data_kembali[id_buku]'");
+                        $tampil = mysqli_fetch_array($cover);
+                        echo "<img src='cover/$tampil[cover_buku]' width='150' height='220'/>";
+                    ?>
                 </span>
                 <div class="txt keterangan">
-                <span class="judul"><?=$data_kembali['judul_utama'];?></span>
-                <p class="anak_judul"><?=$data_kembali['anak_judul'];?></p>
-                <table>
-                    <tr>
-                        <td>ID Pengembalian</td>
-                        <td>:</td>
-                        <td><?=$data_kembali['id_pengembalian'];?></td>
-                    </tr>
-                    <tr>
-                        <td width="120">ID Buku</td>
-                        <td width="10">:</td>
-                        <td><?=$data_kembali['id_buku'];?></td>
-                    </tr>
-                    <tr>
-                        <td width = "170">Tanggal Pinjam</td>
-                        <td width="10">:</td>
-                        <td>
+                    <span class="judul"><?=$data_kembali['judul_utama'];?></span>
+                    <p class="anak_judul"><?=$data_kembali['anak_judul'];?></p>
+                    <table>
+                        <tr>
+                            <td>ID Pengembalian</td>
+                            <td>:</td>
+                            <td><?=$data_kembali['id_pengembalian'];?></td>
+                        </tr>
+                        <tr>
+                            <td width="120">ID Buku</td>
+                            <td width="10">:</td>
+                            <td><?=$data_kembali['id_buku'];?></td>
+                        </tr>
+                        <tr>
+                            <td width = "170">Tanggal Pinjam</td>
+                            <td width="10">:</td>
+                            <td>
                                 <?php
                                     $data = mysqli_query($koneksi, "select * from peminjaman where id_buku = '$data_kembali[id_buku]'");
                                     $tampil = mysqli_fetch_array($data);
@@ -55,56 +55,56 @@
                                     $datetime = DateTime::createFromFormat('Y-m-d', $date);
                                     echo $datetime->format('d/m/Y');
                                 ?>
-                        </td>
-                    </tr>
-                    <tr>
+                            </td>
+                        </tr>
+                        <tr>
                             <td>Tanggal Kembali</td>
                             <td>:</td>
                             <td><?php
-                            $data = mysqli_query($koneksi, "select * from peminjaman where id_buku = '$data_kembali[id_buku]'");
-                            $tampil = mysqli_fetch_array($data);
-                            $date = $tampil['tgl_kembali']; 
-                            $datetime = DateTime::createFromFormat('Y-m-d', $date);
-                            echo $datetime->format('d/m/Y');
-                            ?></td>
-                    </tr>
+                                $data = mysqli_query($koneksi, "select * from peminjaman where id_buku = '$data_kembali[id_buku]'");
+                                $tampil = mysqli_fetch_array($data);
+                                $date = $tampil['tgl_kembali']; 
+                                $datetime = DateTime::createFromFormat('Y-m-d', $date);
+                                echo $datetime->format('d/m/Y');
+                                ?></td>
+                        </tr>
                         <tr>
                             <td>Tanggal Dikembalikan</td>
                             <td>:</td>
                             <td><?php
-                            $date = $data_kembali['tgl_kembali']; 
-                            $datetime = DateTime::createFromFormat('Y-m-d', $date);
-                            echo $datetime->format('d/m/Y');
-                            ?></td>
-                    </tr>
-                    <tr>
-                        <td>Denda</td>
-                        <td>:</td>
-                        <td><?=$data_kembali['denda'];?></td>
-                    </tr>
-                    <tr>
-                        <td>Status</td>
-                        <td>:</td>
-                        <td>
-                            <?php
-                                if($data_kembali['status'] =='P'){
-                                    echo "Menunggu Persetujuan";
-                                }
-                                elseif($data_kembali['status'] =='K'){
-                                    echo "Telah Dikembalikan";
-                                }
-                                elseif($data_kembali['status'] =='R'){
-                                    echo " Pengembalian Ditolak";
-                                }
-                            ?>
-                        </td>
-                    </tr>
-                </table>
+                                $date = $data_kembali['tgl_kembali']; 
+                                $datetime = DateTime::createFromFormat('Y-m-d', $date);
+                                echo $datetime->format('d/m/Y');
+                                ?></td>
+                        </tr>
+                        <tr>
+                            <td>Denda</td>
+                            <td>:</td>
+                            <td><?=$data_kembali['denda'];?></td>
+                        </tr>
+                        <tr>
+                            <td>Status</td>
+                            <td>:</td>
+                            <td>
+                                <?php
+                                    if($data_kembali['status'] =='P'){
+                                        echo "Menunggu Persetujuan";
+                                    }
+                                    elseif($data_kembali['status'] =='K'){
+                                        echo "Telah Dikembalikan";
+                                    }
+                                    elseif($data_kembali['status'] =='R'){
+                                        echo " Pengembalian Ditolak";
+                                    }
+                                ?>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            <div class="button">
+                <a href="scanner.php>"><button>Pinjam Lagi</button></a>
             </div>
         </div>
-    <div class="button">
-        <a href="scanner.php>"><button>Pinjam Lagi</button></a>
-    </div>
-</div>
+        </div>
 <?php endwhile ?>
 </section>

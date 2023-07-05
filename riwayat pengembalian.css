@@ -1,3 +1,30 @@
+.home{
+    position: absolute;
+    top: 0;
+    top: 0;
+    left: 250px;
+    height: 100vh;
+    width: calc(100% - 250px);
+    background-color: var(--body-color);
+    transition: var(--tran-05);
+}
+
+.home .header-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    font-size: 30px;
+    font-weight: 500;
+    color: var(--body-text);
+}
+
+.sidebar.close ~ .home{
+    left: 78px;
+    height: 100vh;
+    width: calc(100% - 78px);
+}
+
 .home .nav{
     padding-top: 20px;
     padding-bottom: 20px;
@@ -11,19 +38,10 @@
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.home .header-text{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 30px;
-    color:var(--body-text);
-    font-size: 30px;
-}
-
 .nav li{
     list-style-type: none;
-    margin-left: 200px;
-    margin-right: 200px;
+    margin-left: 120px;
+    margin-right: 120px;
 }
 
 .nav li a{
@@ -52,6 +70,7 @@
 .ket .isi{
     display: flex;
     flex-direction: row;
+    align-items: flex-end;
     padding-top: 10px;
     padding-bottom: 10px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.09);
@@ -81,8 +100,7 @@
 }
 
 .button{
-    margin-top: 10px;
-    margin-left: 980px;
+    margin-left: 480px;
 }
 
 button{
@@ -96,4 +114,60 @@ button{
     border-radius: 10px;
     outline: none;
     margin-right: 10px;
+}
+
+@media screen and (max-width:934px) {
+    .home .nav{
+        display: block;
+    }
+
+    .nav li{
+        margin: 0;
+        padding: 10px;
+    }
+    
+    .home .ket{
+        padding: 10px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+    
+    .ket .isi{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .ket .keterangan{
+        display: flex;
+        flex-direction: column;
+        margin-top: 0px;
+        margin-left: 10px;
+    }
+    
+    .ket .judul{
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--body-text);
+    }
+    
+    .ket .anak_judul{
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--body-text);
+    }
+    
+    .ket table{
+        font-size: 10px;
+        color: var(--body-text);
+    }
+
+    .button{
+        margin-left: 0px;
+    }
+
+    button{
+        width: 100px;
+        font-size: 12px;
+        padding: 5px;
+    }
 }

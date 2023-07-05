@@ -15,106 +15,110 @@ include "koneksi.php";
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="layanan">
-        <div class="col">
-            <div class="isi">
-                <h2>Hello!</h2>
-                <p>Layanan Untuk Anggota</p>
-            </div>
+    <div class="page">
+        <div class="layanan">
+            <div class="kotak">
+                <div class="isi">
+                    <h2>Hello!</h2>
+                    <p>Layanan Untuk Anggota</p>
+                </div>
 
-            <div class="card card1">
+                <div class="card card1">
+                    
+                </div>
+                <div class="card card2">
                 
-            </div>
-            <div class="card card2">
-            
-            </div>
-            <div class="card card3">
+                </div>
+                <div class="card card3">
 
-            </div>
-            <div class="card card4">
+                </div>
+                <div class="card card4">
 
+                </div>
             </div>
         </div>
-
-        <div class="login"> 
-            <h2>Register</h2>
-            <div class="alert" id="alert">Username sudah dipakai</div>
-            <form method="post">
-            <div class="txt_field">
-                    <input type="text" name="id_anggota" required>
-                    <span></span>
-                    <label> NIM</label>
-                </div>
-                <div class="txt_field">
-                    <input type="text" name="nama_anggota" required>
-                    <span></span>
-                    <label> Nama</label>
-                </div>
-                <div class="txt_field">
-                    <input type="text" name="ttl" required>
-                    <span></span>
-                    <label> Tempat, Tanggal Lahir</label>
-                </div>
-                <div class="txt_field">
-                    <input type="text" name="jenkel" required>
-                    <span></span>
-                    <label> Jenis Kelamin</label>
-                </div>
-                <div class="option_field">
-                    <label> Fakultas</label>
-                    <div class="option"><select name="fakultas" id="fakultas">
-                        <?php
-                        $fakultas= mysqli_query($koneksi, "select * from fakultas");
-                        while($ambilfakultas= mysqli_fetch_array($fakultas)) :
-                        ?>
-                        <option value="<?php echo $ambilfakultas['nama_fakultas']?>"><?php echo $ambilfakultas['nama_fakultas']?></option>
-                        <?php endwhile ?>
-                    </select></div>
-                </div>
-                <div class="option_field">
-                    <label> Prodi</label>
-                    <div class="option"><select name="prodi" id="prodi">
-                        <?php
-                        $prodi= mysqli_query($koneksi, "select * from prodi");
-                        while($ambilprodi= mysqli_fetch_array($prodi)) :
-                        ?>
-                        <option value="<?php echo $ambilprodi['nama_prodi']?>"><?php echo $ambilprodi['nama_prodi']?></option>
-                        <?php endwhile ?>
-                    </select></div>
-                </div>
-                <div class="txt_field">
-                    <input type="text" name="tahun_masuk" required>
-                    <span></span>
-                    <label> Tahun Masuk</label>
-                </div>
-                <div class="txt_field">
-                    <input type="text" name="no_telp" required>
-                    <span></span>
-                    <label> No. Telepon </label>
-                </div>
-                <div class="txt_field">
-                    <input type="text" name="email" required>
-                    <span></span>
-                    <label> Email </label>
-                </div>
-                <div class="txt_field">
-                    <input type="text" name="username" required>
-                    <span></span>
-                    <label> Username </label>
-                </div>
-                <div class="password">
+        <div class="login">
+            <div class="wrap"> 
+                <div class="judul"><h2>Register</h2></div>
+                <form method="post">
+                <div class="alert" id="alert">Username sudah dipakai</div>
                     <div class="txt_field">
-                        <input type="password" name="password" id="myInput" required>
-                        <span></span>
-                        <label> Password </label>
+                        <label> NIM</label>
+                        <input type="text" name="id_anggota" required>
                     </div>
-                    <span class="eye" onClick="myFunction()">
-                        <i id="hide1" class="fa fa-eye"></i>
-                        <i id="hide2"  class="fa fa-eye-slash"></i>
-                    </span>
-                </div>
-                <input type="submit" value="Sign Up" name="proses">
-            </form>
+                    <div class="txt_field">
+                        <label> Nama</label>
+                        <input type="text" name="nama_anggota" required>
+                    </div>
+                    <div class="txt_field">
+                        <label> Tempat, Tanggal Lahir</label>
+                        <input type="text" name="ttl" required>
+                    </div>
+                    <div class="txt_field">
+                        <label> Jenis Kelamin</label>
+                        <div class="option">
+                            <select name="fakultas" id="fakultas">
+                                <option value="Laki-laki">Laki-Laki</option>
+                                <option value="Perempuan">Perempuan</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="txt_field">
+                        <label> Fakultas</label>
+                        <div class="option">
+                            <select name="fakultas" id="fakultas">
+                            <?php
+                                $fakultas= mysqli_query($koneksi, "select * from fakultas");
+                                while($ambilfakultas= mysqli_fetch_array($fakultas)) :
+                                ?>
+                                <option value="<?php echo $ambilfakultas['nama_fakultas']?>"><?php echo $ambilfakultas['nama_fakultas']?></option>
+                                <?php endwhile ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="txt_field">
+                        <label> Prodi</label>
+                        <div class="option"><select name="prodi" id="prodi">
+                                <?php
+                                $prodi= mysqli_query($koneksi, "select * from prodi");
+                                while($ambilprodi= mysqli_fetch_array($prodi)) :
+                                ?>
+                                <option value="<?php echo $ambilprodi['nama_prodi']?>"><?php echo $ambilprodi['nama_prodi']?></option>
+                                <?php endwhile ?>
+                        </select></div>
+                    </div>
+                    <div class="txt_field">
+                        <label> Tahun Masuk</label>
+                        <input type="text" name="tahun_masuk" required>
+                    </div>
+                    <div class="column">
+                        <div class="txt_field">
+                            <label> No. Telepon </label>
+                            <input type="text" name="no_telp" required>
+                        </div>
+                        <div class="txt_field">
+                            <label> Email </label>
+                            <input type="text" name="email" required>
+                        </div>
+                    </div>
+                    <div class="txt_field">
+                        <label> Username </label>
+                        <input type="text" name="username" required>
+                    </div>
+                    <div class="password">
+                        <div class="txt_field1">
+                            <label> Password </label>
+                            <input type="password" name="password" id="myInput" required>
+                            <span class="eye" onClick="myFunction()">
+                            <i id="hide1" class="fa fa-eye"></i>
+                            <i id="hide2"  class="fa fa-eye-slash"></i>
+                        </span>
+                        </div>
+                        
+                    </div>
+                    <input class="submit" type="submit" value="Sign Up" name="proses">
+                </form>
+            </div>
         </div>
     </div>
 </body>

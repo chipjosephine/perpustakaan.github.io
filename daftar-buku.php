@@ -2,54 +2,50 @@
 include "sidebaranggota.php";
 include "koneksi.php";
 ?>
-<link rel="stylesheet" type="text/css" href="search.css">
+<link rel="stylesheet" type="text/css" href="swiper-bundle.min.css"/>
+<link rel="stylesheet" type="text/css" href="daftar-buku.css">
 <div class="home">
     <div class="header-text">
-        <h1>KOLEKSI BACAAN</h1>
+        <h1>Koleksi Bacaan</h1>
+    </div>
+    <div class="title">
+        <h1>Untuk Khotbah</h1>
     </div>
     <div class="result">
-        <?php
-        $query=mysqli_query($koneksi, "select * from buku");
-        while($row=mysqli_fetch_array($query)):
-        ?>
-        <div class="item">
-                <span class="cover">
-                    <?php echo "<img src='cover/$row[cover_buku]' width='100' />"; ?>
-                </span>
-                <div class="txt keterangan">
-                    <table>
-                        <tr>
-                            <td>No DDC</td>
-                            <td>:</td>
-                            <td><span class="ddc"><?= $row['no_ddc'];?></span></td>
-                        </tr>
-                        <tr>
-                            <td>Judul Buku</td>
-                            <td>:</td>
-                            <td><span class="judul"><?= $row['judul_buku'];?></span></td>
-                        </tr>
-                        <tr>
-                            <td>Penulis</td>
-                            <td>:</td>
-                            <td><span class="penulis"><?= $row['penulis_buku'];?></span></td>
-                        </tr>
-                        <tr>
-                            <td>Penerbit</td>
-                            <td>:</td>
-                            <td><span class="penerbit"><?= $row['penerbit'];?></span></td>
-                        </tr>
-                        <tr>
-                            <td width="100">Topic Subject</td>
-                            <td  width="10">:</td>
-                            <td width="200"><span class="subject"><?= $row['subject'];?></span></td>
-                        </tr>
-                    </table>
+    <?php
+        $hasil = mysqli_query($koneksi, "SELECT *
+            FROM buku
+            INNER JOIN klasifikasi
+            ON buku.kode_klasifikasi = klasifikasi.kode_klasifikasi
+            WHERE subject like '%khotbah%'");
+        while($row = mysqli_fetch_array($hasil)) : ?>
+                <div class="item">
+                    <div class="cover">
+                        <?php echo "<img src='cover/$row[cover_buku]' width='170' height='250' />"; ?>
+                    </div>
+                    <div class="subject"><?= $row['subject'];?></div>
+                    <div class="txt keterangan">
+                        <div class="judul">
+                            <div class="judul_utama"><?= $row['judul_utama'];?></div>
+                            <div class="anak_judul"><?= $row['anak_judul'];?></div>
+                        </div>
+                        <div class="penulis">oleh <?= $row['penulis_buku'];?></div>
+                    </div>
+                    <div class="button">
+                        <a class="tombol" href="?id_buku=<?=$row['id_buku'];?>#popup"><span>Detail</span><i></i></a>
+                        <a class="tombol" href="scanner.php?id_buku=<?=$row['id_buku'];?>"><span>Pinjam</span><i></i></a>
+                    </div>
                 </div>
-                <a href="konfirm-buku.php?id_buku=<?=$row['id_buku'];?>"><button>Pinjam</button></a>
-        </div>
         <?php
-        endwhile;
+            endwhile;
         ?>
     </div>
+    <div class="swiper-button-next swiper-navBtn"></div>
+    <div class="swiper-button-prev swiper-navBtn"></div>
+    <div class="swiper-pagination"></div>
 </div>
+
+<script src="swiper-bundle.min.js"></script>
+<script src="coba.js"></script>
+
     

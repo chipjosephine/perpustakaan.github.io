@@ -559,7 +559,7 @@ table.dataTable td {
 }
 
 .dataTables_wrapper .dataTables_length {
-    float: left;
+    float: right;
     padding-bottom: 10px;
 }
 
@@ -572,8 +572,8 @@ table.dataTable td {
 }
 
 .dataTables_wrapper .dataTables_filter {
-    float: right;
-    text-align: right
+    float: none;
+    text-align: left
 }
 
 .dataTables_wrapper .dataTables_filter input {
@@ -713,6 +713,10 @@ table.dataTable td {
 
 @media screen and (max-width: 767px) {
 
+    .dataTables_wrapper{
+        width: 100%;
+    }
+
     .dataTables_wrapper .dataTables_info,
     .dataTables_wrapper .dataTables_paginate {
         float: none;
@@ -726,9 +730,13 @@ table.dataTable td {
 
 @media screen and (max-width: 640px) {
 
+    .dataTables_wrapper{
+        width: 100%;
+    }
+
     .dataTables_wrapper .dataTables_length,
     .dataTables_wrapper .dataTables_filter {
-        float: none;
+        float: right;
         text-align: center
     }
 

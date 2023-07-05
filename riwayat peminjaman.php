@@ -1,8 +1,17 @@
 <?php
     include "sidebaranggota.php";
 ?>
-<link rel="stylesheet" type="text/css" href="riwayat peminjaman.css">
-    <section class="home">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riwayat Peminjaman</title>
+    <link rel="stylesheet" type="text/css" href="riwayat peminjaman.css">
+</head>
+<body>
+<section class="home">
         <div class="header-text">
             <h4>Peminjaman</h4>
         </div>
@@ -72,7 +81,10 @@
                             <td>:</td>
                             <td>
                             <?php
-                                if($data_dipinjam['status'] == 'A'){
+                                if($data_dipinjam['status'] == 'P'){
+                                    echo "Menunggu Persetujuan";
+                                }
+                                elseif($data_dipinjam['status'] == 'A'){
                                     echo "Sedang Dipinjam";
                                 }
                                 elseif($data_dipinjam['status'] == 'R'){
@@ -86,10 +98,13 @@
                         </tr>
                     </table>
                 </div>
-            </div>
-            <div class="button">
+                <div class="button">
                 <a href="scanner.php"><button>Pinjam Lagi</button></a>
+                </div>
             </div>
+            
         </div>
         <?php endwhile ?>
     </section>
+</body>
+</html>

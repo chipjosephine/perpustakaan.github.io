@@ -66,12 +66,16 @@
                         <tr>
                             <td>Tanggal Pinjam</td>
                             <td>:</td>
-                            <td><?=$data_dipinjam['tgl_pinjam'];?></td>
+                            <td><?php $date = $data_dipinjam['tgl_pinjam']; 
+                            $datetime = DateTime::createFromFormat('Y-m-d', $date);
+                            echo $datetime->format('d/m/Y');?></td>
                         </tr>
                         <tr>
                             <td>Tanggal Kembali</td>
                             <td>:</td>
-                            <td><?=$data_dipinjam['tgl_kembali'];?></td>
+                            <td><?php $date = $data_dipinjam['tgl_kembali']; 
+                            $datetime = DateTime::createFromFormat('Y-m-d', $date);
+                            echo $datetime->format('d/m/Y');?></td>
                         </tr>
                         <tr>
                             <td>Status</td>

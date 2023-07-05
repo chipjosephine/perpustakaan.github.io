@@ -114,9 +114,14 @@
                             <td><?= $data_buku['id_buku'];?></td>
                         </tr>        
                         <tr>
-                            <td width="85">Judul Buku</td>
+                            <td width="100">Judul Utama</td>
                             <td width="10">:</td>
-                            <td><p color="red"><?=$data_buku['judul_utama'];?></p> <?=$data_buku['anak_judul'];?></td>
+                            <td><?=$data_buku['judul_utama'];?></td>
+                        </tr>
+                        <tr>
+                            <td width="85">Anak Judul</td>
+                            <td width="10">:</td>
+                            <td><?=$data_buku['anak_judul'];?></td>
                         </tr>
                         <tr>
                             <td>Penulis</td>
@@ -127,7 +132,32 @@
                             <td>Penerbit</td>
                             <td width="10">:</td>
                             <td><?= $data_buku['penerbit'];?></td>
-                        </tr>             
+                        </tr>
+                        <tr>
+                            <td>Lokasi</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Lantai</td>
+                            <td width="10">:</td>
+                            <td><?= $data_buku['lantai'];?></td>
+                        </tr>
+                        <tr>
+                            <td>Rak</td>
+                            <td width="10">:</td>
+                            <td><?= $data_buku['rak'];?></td>
+                        </tr>
+                        <tr>
+                            <td>Sisi</td>
+                            <td width="10">:</td>
+                            <td><?= $data_buku['sisi'];?></td>
+                        </tr>
+                        <tr>
+                            <td>Susunan ke</td>
+                            <td width="10">:</td>
+                            <td><?= $data_buku['susun'];?></td>
+                        </tr>
                 </table>
                 <a href="scanner.php"><button>Pinjam</button></a>
                 </span>   

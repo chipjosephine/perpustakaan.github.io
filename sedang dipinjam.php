@@ -1,8 +1,17 @@
 <?php
     include "sidebaranggota.php";
 ?>
-<link rel="stylesheet" type="text/css" href="sedang dipinjam.css">
-    <section class="home">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sedang Dipinjam</title>
+    <link rel="stylesheet" type="text/css" href="sedang dipinjam.css">
+</head>
+<body>
+<section class="home">
         <div class="header-text">
             <h4>Peminjaman</h4>
         </div>
@@ -32,7 +41,7 @@
                     <?php
                     $cover = mysqli_query($koneksi, "select * from buku where id_buku = '$data_dipinjam[id_buku]'");
                     $tampil = mysqli_fetch_array($cover);
-                    echo "<img src='cover/$tampil[cover_buku]' width='100'/>";
+                    echo "<img src='cover/$tampil[cover_buku]' width='150' height='220'/>";
                     ?>
                 </span>    
                 <div class="txt keterangan">
@@ -40,12 +49,12 @@
                 <p class="anak_judul"><?=$data_dipinjam['anak_judul'];?></p>
                 <table>
                         <tr>
-                            <td>ID Peminjaman</td>
+                            <td width="200">ID Peminjaman</td>
                             <td>:</td>
                             <td><?=$data_dipinjam['id_peminjaman'];?></td>
                         </tr>
                         <tr>
-                            <td width="120">ID Buku</td>
+                            <td>ID Buku</td>
                             <td width="10">:</td>
                             <td><?=$data_dipinjam['id_buku'];?></td>
                         </tr>
@@ -73,11 +82,14 @@
                             <td>7 Hari</td>
                         </tr>
                     </table>
+                    <div class="button" align="right">
+                        <a href="konfirm-pengembalian.php?id_buku=<?=$data_dipinjam['id_buku'];?>"><button>Kembalikan</button></a>
+                    </div>
                 </div>
-            </div>
-            <div class="button">
-                    <a href="konfirm-pengembalian.php?id_buku=<?=$data_dipinjam['id_buku'];?>"><button>Kembalikan</button></a>
             </div>
         </div>
         <?php endwhile ?>
     </section>
+</body>
+</html>
+    

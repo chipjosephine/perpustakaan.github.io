@@ -30,10 +30,9 @@
                     <?php
                     $cover = mysqli_query($koneksi, "select * from buku where id_buku = '$data_pengembalian[id_buku]'");
                     $tampil = mysqli_fetch_array($cover);
-                    echo "<img src='cover/$tampil[cover_buku]' width='100'/>";
+                    echo "<img src='cover/$tampil[cover_buku]' width='150' height='220'/>";
                     ?>
                 </span>
-    
                 <div class="txt keterangan">
                     <span class="judul"><?=$data_pengembalian['judul_utama'];?></span>
                     <p class="anak_judul"><?=$data_pengembalian['anak_judul'];?></p>  
@@ -69,7 +68,7 @@
                         </tr>
                     </table>
                 </div>
-                <?php endwhile ?>
             </div>
         </div>
+        <?php endwhile ?>
     </section>

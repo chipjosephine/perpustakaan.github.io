@@ -1,0 +1,64 @@
+.home{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 320px;
+    height: 100vh;
+    width: calc(100% - 320px);
+    transition: var(--tran-05);
+
+}
+
+.sidebar.close ~ .home{
+    left: 150px;
+    height: 100vh;
+    width: calc(100% - 150px);
+}
+
+.home .header{
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--body-text);
+}
+
+.isi{
+    display: flex;
+    margin-top: 20px;
+}
+
+.image-box img{
+    border-radius: 5px;
+}
+
+.detail{
+    margin-left: 20px;
+}
+
+.subject{
+    color: #adb5bd;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.judul{
+    height: 100px;
+}
+
+.judul_utama{
+    color: var(--body-text);
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.anak_judul{
+    color: var(--body-text);
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.penulis{
+    color: var(--body-text);
+    font-weight: 500;
+    font-size: 16px;
+}

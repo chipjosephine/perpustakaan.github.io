@@ -25,6 +25,7 @@
                     <option value="BukuTamuPengunjung">Buku Tamu Pengunjung</option>
                     <option value="BukuTamuAnggota">Buku Tamu Anggota</option>
                     <option value="Buku">Buku</option>
+                    <option value="Denda">Denda</option>
                 </select>
             </div>
             <div class="waktu">
@@ -85,7 +86,7 @@
                             <td><?= $tampil['id_anggota'] ?></td>
                             <td><?= $tampil['nama_anggota'] ?></td>
                             <td><?= $tampil['id_buku'] ?></td>
-                            <td><?= $tampil['judul_buku'] ?></td>
+                            <td><?= $tampil['judul_utama'], " : ", $tampil['anak_judul']?></td>
                             <td><?= $tampil['tgl_pinjam']?></td>
                             <td><?= $tampil['tgl_kembali']?></td>
                         </tr>
@@ -138,7 +139,7 @@
                             <td><?= $tampil['id_anggota'] ?></td>
                             <td><?= $tampil['nama_anggota'] ?></td>
                             <td><?= $tampil['id_buku'] ?></td>
-                            <td><?= $tampil['judul_buku'] ?></td>
+                            <td><?= $tampil['judul_utama'], " : ", $tampil['anak_judul']?></td>
                             <td><?= $tampil['tgl_kembali']?></td>
                             <td><?= $tampil['denda']?></td>
                         </tr>
@@ -294,7 +295,7 @@
                         <tr>
                             <td><?=$no?></td>
                             <td><?=$tampil['id_buku']?></td>
-                            <td><?=$tampil['judul_buku']?></td>
+                            <td><?= $tampil['judul_utama'], " : ", $tampil['anak_judul']?></td>
                             <td><?=$tampil['penulis_buku']?></td>
                             <td><?=$tampil['penerbit']?></td>
                             <td><?=$tampil['tahun_terbit']?></td>
@@ -323,8 +324,69 @@
             </div>
         </div>
         <?php } ?>
-
-
+        
+        <?php
+        if($table == "Denda"){
+        ?>
+        <div class="data">
+            <div class="title">Laporan Denda</div>
+            <div class="date">Dari tanggal <?=$tgl1;?> sampai <?=$tgl2;?></div>
+            <table id="example" class="display" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>ID Anggota</th>
+                        <th>Nama Anggota</th>
+                        <th>Tanggal Dibayar</th>
+                        <th>Denda</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                        $no = 0;
+                        $ambildata = mysqli_query($koneksi, "SELECT * from pengembalian where tgl_kembali between '$tgl1' and '$tgl2'");
+                        while ($tampil = mysqli_fetch_array($ambildata)){
+                        $no++;
+                    ?>
+                        <tr>
+                            <td><?= $no ?></td>
+                            <td><?= $tampil['id_anggota'] ?></td>
+                            <td><?= $tampil['nama_anggota'] ?></td>
+                            <td><?= $tampil['tgl_kembali']?></td>
+                            <td><?= $tampil['denda'] ?></td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
+                <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>Total</td>
+                            <?php
+                            $total_denda = mysqli_query($koneksi, "select denda, sum(denda) from pengembalian where tgl_kembali between '$tgl1' and '$tgl2'");
+                            $denda = mysqli_fetch_array($total_denda);
+                            ?>
+                            <td><?= "Rp", $denda['sum(denda)']; ?></td>
+                        </tr>
+                </tbody>
+            </table>
+            <script>
+                $(document).ready(function () {
+                $('#example').DataTable();
+                });
+            </script>
+            <div class="total">
+                Total Denda Masuk : <?= "Rp", $denda['sum(denda)']; ?>
+            </div>
+            <div class="print">
+                <?php
+                $today = date('d m Y');
+                ?>
+                Dicetak Tanggal : <?=$today;?>
+            </div>
+        </div>
+        <?php } ?>
     </div>
 </section>
 </body>

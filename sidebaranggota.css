@@ -70,13 +70,13 @@ body{
     border-radius: 6px;
 }
 
-form{
+.form-search{
     height: 50px;
     display: flex;
     align-items: center;
 }
 
-form .ikon{
+.form-search .ikon{
     min-width: 60px;
     border-radius: 6px;
     height: 100%;

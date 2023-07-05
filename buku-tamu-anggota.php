@@ -56,7 +56,7 @@ $data_user = mysqli_fetch_array($sql_user);
                     keperluan = '$_POST[keperluan]',
                     hari = '$day'");
 
-                    echo "<meta http-equiv=refresh content=0;URL='dbanggota.php'>";
+                    echo "<meta http-equiv=refresh content=0;URL='riwayat.php'>";
                 }
                 ?>
         </div>

@@ -96,11 +96,21 @@ input[type="submit"] {
     padding: 10px;
 }
 
-.title, .date, .print{
+.title, .date, .total, .print{
     display: none;
 }
 
 @media print{
+    .home{
+        width: 100%;
+        left: 0;
+    }
+
+    .sidebar.close ~ .home{
+        width: 100%;
+        left: 0;
+    }
+
     .header-text, form{
         display: none;
     }
